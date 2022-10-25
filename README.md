@@ -1,35 +1,44 @@
-# Uzbek_Trans 2022
+# Excel_Trans 2022
 
 Developed by Quvonchbek Bobojonov (c) 2022
 
 ## Examples of How To Use (Buggy Alpha Version)
 
-Uzbek Translate
-
-```js
-pip install Uzbek-Trans==1.22
+### install
+```terminal
+pip install excel-trans==1.22.1
 ```
+
+### Uzbek Translate
 
 ```python
-from Uzbek_Trans import transliterate, to_cyrillic, to_latin, test
 
-text = transliterate(text='salom', to_variant="cyrillic")
+from Excel_Trans import Translator
 
-print(text)
+trans = Translator()
 
-print(to_cyrillic(text="salom"))
-print(to_latin(text="салом"))
+#Uzbek Translate
 
-# Uzbek_Trans test
-if __name__ == "__main__":
-    test()
-```
- Uzbek_Trans test consul
+trans.UzbekTranslate(file='test.xlsx', to_variant='latin', save_file='test1.xlsx')
 
-```js 
-1: latin, 2: cyrillic
-Turni kiriting:2
-матн киритинг:salom
-салом
+# get supported variants
+
+print(trans.variant())
+
 ```
 
+### Global Translate
+```python
+
+from Excel_Trans import Translator
+trans = Translator()
+
+#Global Translate
+
+trans.GlobalTranslate(file='test.xlsx', target='ru', save_file='test1.xlsx')
+
+#get supported languages
+
+trans.get_supported_languages(as_dict=True)
+
+```
